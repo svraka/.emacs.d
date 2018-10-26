@@ -61,8 +61,6 @@ Polymode is a package that supports multiple modes inside a single buffer. It is
 #+begin_src emacs-lisp 
   (require 'poly-R)
   (require 'poly-markdown)
-  (add-to-list 'auto-mode-alist '("\\.md" . poly-markdown-mode))
-  (add-to-list 'auto-mode-alist '("\\.Rmd" . poly-markdown+r-mode))
 #+end_src
 
 ** Make shift-enter to a lot in ESS.
