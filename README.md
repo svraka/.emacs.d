@@ -54,11 +54,9 @@ code using git rather than simply copying a static version of it. You
 should be using version control on your plain-text documents anyway, so
 I recommend this second option.
 
-**0.1 Get Emacs**. The starter kit requires Emacs 24.4 (released October
-2014). [Download Emacs
+**0.1 Get Emacs**. [Download Emacs
 here](http://emacsformacosx.com/ "GNU Emacs For Mac OS X").
-Alternatively, if you are comfortable with Homebrew, compile and install
-it.
+Alternatively, if you are comfortable with [Homebrew](https://brew.sh), compile and install it from there.
 
 **0.2 Install a Modern TeX Distribution and the Skim PDF reader**. If
 you are using OS X, [download MacTeX
