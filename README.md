@@ -1,6 +1,6 @@
 ## Emacs Starter Kit for the Social Sciences
 
-A drop-in starter-kit for Emacs 24 on the Mac, derived from
+A drop-in starter-kit for Emacs on the Mac, derived from
 [Phil Hagelberg's](https://github.com/technomancy) and
 [Eric Schulte's](https://github.com/eschulte/) originals, but now
 somewhat different from those. Designed for social scientists
@@ -23,28 +23,22 @@ replace them, while leaving a place for you to easily append your own
 customizations.
 
 The starter kit is designed to be used with GNU Emacs. Version 24.4
-(released October 2014) or later is required. It will not work with
-[Aquamacs](http://aquamacs.org/ "Aquamacs: Emacs for Mac OS X") without
-modification. More detailed commentary and documentation is provided
-inside the kit's `.org` files.
+(released October 2014) or later is required; the current version of
+Emacs (>25) is recommended. It will not work with
+[Aquamacs](http://aquamacs.org/ "Aquamacs: Emacs for Mac OS X")
+without modification. More detailed commentary and documentation is
+provided inside the kit's `.org` files.
 
 ## Before you Begin
 
 If you want to use the tools that the starter-kit works with—LaTeX, R,
 Git, Pandoc, and all the rest—then you will need to install them on your
 Mac. The ground floor is Apple's own suite of Developer Tools, which
-allow you to compile software yourself and include things like Git. The
-most straightforward way to get these tools is to **install Xcode**.
-Xcode is what software developers use to write Mac and iOS applications.
-As such it comes with a bunch of things we are not so interested in, but
-it makes it easy to install what we do need. It's available [for free
-via the Mac App Store](https://developer.apple.com/xcode/). Once
-downloaded, launch Xcode, go to Xcode &gt; Preferences &gt; Downloads
-and install the **Command Line Tools for Xcode**. At that point you can
-quit Xcode and never use it again. Alternatively, go to [Apple's
-Developer Site](https://developer.apple.com/), login with your Apple ID
-and download the Command Line Tools for Xcode package by itself, without
-the Xcode application.
+allow you to compile software yourself. The most straightforward way to get these tools is to open the Terminal app (which can be found in the Applications folder, inside a folder named "Utilities"). At the command prompt, type the following:
+
+`xcode-select --install`
+
+A dialog box will appear asking whether you want to install the tools. Choose "Install" and wait for the process to complete. 
 
 If you have used Emacs before and already have a `.emacs` file or
 `.emacs.d` directory, back them up and then delete them. See below for
