@@ -125,6 +125,22 @@ Assignment in ESS is shift-minus; by extension we'll use M-shift-minus for inser
 
 #+end_src
 
+** Add a Keyboard Shortcut for Rmd chunks
+
+#+src-name: rmd-chunk-insert
+#+BEGIN_SRC emacs_lisp
+
+;;;Insert new chunk for Rmarkdown
+(defun kjh-insert-r-chunk (header) 
+  "Insert an r-chunk in markdown mode." 
+  (interactive "sLabel: ") 
+  (insert (concat "```{r " header "}\n\n```")) 
+  (forward-line -1))
+
+(global-set-key (kbd "C-c i") 'kjh-insert-r-chunk)
+
+#+END_SRC
+
 ** Uniquify Buffer Names
 This is useful for when you have buffers with many similar names, as when there are various open files from different folders named =analysis.R= or similar. 
 
