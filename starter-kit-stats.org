@@ -128,7 +128,7 @@ Assignment in ESS is shift-minus; by extension we'll use M-shift-minus for inser
 ** Add a Keyboard Shortcut for Rmd chunks
 
 #+src-name: rmd-chunk-insert
-#+BEGIN_SRC emacs_lisp
+#+BEGIN_SRC emacs-lisp
 
 ;;;Insert new chunk for Rmarkdown
 (defun kjh-insert-r-chunk (header) 
