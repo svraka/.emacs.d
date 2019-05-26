@@ -2,6 +2,7 @@
 loaddefs.el*
 backups/*
 auto-save-list
+auto-save-files
 custom.el
 *elc
 places
@@ -20,6 +21,10 @@ elim/
 elpa-to-submit/nxhtml/etc/schema/xhtml-loader.rnc~
 session*
 tramp
+.emacs.desktop
+abbrev_defs
+ido.last
+smex-items
 \#*
 ## exported files
 *el
