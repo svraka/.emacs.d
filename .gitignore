@@ -13,7 +13,6 @@ thumbs/*
 oddmuse/*
 .newsrc-dribble
 .nnmail-cache
-/#.newsrc-dribble#
 .svn
 .DS_Store
 image-dired/
@@ -27,7 +26,7 @@ ido.last
 smex-items
 \#*
 ## exported files
-*el
+[^(init)]*.el
 starter-kit*html
 doc
 eshell/lastdir
@@ -44,6 +43,5 @@ src/auctex-src/*elc
 /src/pandoc/.manual.text.latex.pandoc
 /src/pandoc/.manual.text.texinfo.pandoc
 /ac-comphist.dat
-/.#starter-kit-latex.org
 /index.org
 /vc-git.awk
