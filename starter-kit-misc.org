@@ -171,11 +171,32 @@ A nicer modeline.
 (delete 'try-expand-list hippie-expand-try-functions-list)
 #+end_src
 
-** Don't clutter up directories with files~
+** Don't clutter up directories with miscellaneous files
+
+Put all backup files (=files~=) under =.emacs.d=:
+
 #+begin_src emacs-lisp
 (setq backup-directory-alist `(("." . ,(expand-file-name
                                         (concat dotfiles-dir "backups")))))
 #+end_src
+
+Put all auto-save files (=#files#=) also under =.emacs.d=:
+
+#+begin_src emacs-lisp
+(let ((my-auto-save-dir (locate-user-emacs-file "auto-save-files")))
+  (setq auto-save-file-name-transforms
+        `((".*" ,(expand-file-name "\\2" my-auto-save-dir) t)))
+  (unless (file-exists-p my-auto-save-dir)
+    (make-directory my-auto-save-dir)))
+#+end_src
+
+Disable [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Interlocking.html][file interlocking]] (=.#files=). As far as I understand, it
+shouldn't cause any issues for me (see e.g. [[https://www.reddit.com/r/emacs/comments/aoggav/how_to_disable_file_starting_with/eg3k0mo/][here]]).
+
+#+begin_src emacs-lisp
+(setq create-lockfiles nil)
+#+end_src
+
 
 ** Associate modes with file extensions
 #+begin_src emacs-lisp
