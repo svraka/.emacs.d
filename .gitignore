@@ -24,6 +24,7 @@ tramp
 abbrev_defs
 ido.last
 smex-items
+server/
 \#*
 ## exported files
 *.el
