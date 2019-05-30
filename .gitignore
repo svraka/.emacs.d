@@ -26,7 +26,8 @@ ido.last
 smex-items
 \#*
 ## exported files
-[^(init)]*.el
+*.el
+!init.el
 starter-kit*html
 doc
 eshell/lastdir
