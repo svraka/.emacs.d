@@ -183,9 +183,9 @@ Put all backup files (=files~=) under =.emacs.d=:
 Put all auto-save files (=#files#=) also under =.emacs.d=:
 
 #+begin_src emacs-lisp
-(let ((my-auto-save-dir (locate-user-emacs-file "auto-save-files")))
+(let ((my-auto-save-dir (locate-user-emacs-file "auto-save-files/")))
   (setq auto-save-file-name-transforms
-        `((".*" ,(expand-file-name "\\2" my-auto-save-dir) t)))
+        `((".*" ,(expand-file-name my-auto-save-dir) t)))
   (unless (file-exists-p my-auto-save-dir)
     (make-directory my-auto-save-dir)))
 #+end_src
