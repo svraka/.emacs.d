@@ -77,6 +77,19 @@ EmacsWiki). For other dictionaries, use =M-x ispell-change-dictionary=.
 #+end_src
 
 
+** Automatically guess the language
+
+#+begin_src emacs-lisp
+  (require 'guess-language)
+  (setq guess-language-languages '(hu en))
+  (setq guess-language-langcodes
+    '((en . ("en_GB" "English"))
+      (hu . ("hu_HU" nil))))
+
+  (add-hook 'text-mode-hook (lambda () (guess-language-mode 1)))
+#+end_src
+
+
 #+source: message-line
 #+begin_src emacs-lisp
   (message "Starter Kit Spelling loaded.")
