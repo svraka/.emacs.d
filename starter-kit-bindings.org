@@ -73,6 +73,21 @@ Building regular expressions in Emacs is kind of a pain.  The visual-regexp paca
   (define-key global-map (kbd "C-c q") 'vr/query-replace)
 #+end_src
 
+Ignore accents (called character folding in Emacs) in incremental searches.
+
+#+source: char-folding
+#+begin_src emacs-lisp
+  (setq search-default-mode #'char-fold-to-regexp)
+#+end_src
+
+Note that it only works in non-regexp searches. You can turn it off inside
+an incremental search by typing =M-s '= and you can turn it on in the
+same way inside a regexp search.
+
+Emacs already does case folding by default. This can also be turned
+off using =M-s c= in an incremental search.
+
+
 ** File finding
 #+begin_src emacs-lisp 
   (global-set-key (kbd "C-x M-f") 'ido-find-file-other-window)
