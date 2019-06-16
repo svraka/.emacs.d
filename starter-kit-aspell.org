@@ -1,28 +1,51 @@
-#+TITLE: Starter Kit aspell
+#+TITLE: Starter Kit Spelling
 #+OPTIONS: toc:nil num:nil ^:nil
 
 This is part of the [[file:starter-kit.org][Emacs Starter Kit]].
 
-* Starter Kit aspell
-Hackish file to accommodate having aspell installed on your Mac. Otherwise
+* Starter Kit Hunspell
+Hackish file to accommodate having Hunspell installed on your Mac. Otherwise
 flyspell doesn't start properly. Putting this customization in
 <username>.org initiates it too late. 
 
 - This file is loaded by a special line added to [[file:starter-kit.org][starter-kit.org]]. 
 
-** Specify aspell
+** Specify Hunspell
+
+You'll need to have Hunspell dictionaries on your system. MacOS comes with these but they are quite outdated. Get the recent versions LibreOffice's [[https://github.com/LibreOffice/dictionaries][dictionaries repo]] and save them under a folder which Hunspell recognizes (on MacOS =~/Library/Spelling=, otherwise see =hunspell -D=), or set the =DICPATH= environmental variable to find dictionaries.
+
 #+begin_src emacs-lisp
   (require 'flyspell)
-  (setq ispell-program-name "aspell"
-        ispell-dictionary "english"
-        ispell-dictionary-alist
-        (let ((default '("[A-Za-z]" "[^A-Za-z]" "[']" nil
-                         ("-B" "-d" "english")
-                         nil iso-8859-1)))
-          `((nil ,@default)
-            ("english" ,@default))))
-  (setq ispell-extra-args '("--sug-mode=ultra"))
-  (setq ispell-personal-dictionary "~/.aspell.en.pws")
+  (add-to-list 'ispell-dictionary-alist '("hu_HU"
+                                                "[[:alpha:]]"
+                                                "[^[:alpha:]]"
+                                                "[']"
+                                                t
+                                                ("-d" "hu_HU")
+                                                nil
+                                                utf-8))
+
+  (add-to-list 'ispell-dictionary-alist '("en_GB"
+                                                "[[:alpha:]]"
+                                                "[^[:alpha:]]"
+                                                "[']"
+                                                t
+                                                ("-d" "en_GB")
+                                                nil
+                                                utf-8))
+
+  (add-to-list 'ispell-dictionary-alist '("en_US"
+                                                "[[:alpha:]]"
+                                                "[^[:alpha:]]"
+                                                "[']"
+                                                t
+                                                ("-d" "en_US")
+                                                nil
+                                                utf-8))
+
+  (setq ispell-program-name "hunspell")
+  (setq ispell-dictionary "hu_HU") 
+  ;; (setq ispell-personal-dictionary "~/.aspell.en.pws")
   (setq flyspell-issue-message-flag nil)
   
  
@@ -37,5 +60,5 @@ flyspell doesn't start properly. Putting this customization in
 
 #+source: message-line
 #+begin_src emacs-lisp
-  (message "Starter Kit Aspell loaded.")
+  (message "Starter Kit Spelling loaded.")
 #+end_src
