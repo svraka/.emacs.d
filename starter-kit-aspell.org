@@ -58,6 +58,25 @@ You'll need to have Hunspell dictionaries on your system. MacOS comes with these
   
 #+end_src
 
+
+** Easily switch languages
+
+Cycle between often used dictionaries (via [[https://www.emacswiki.org/emacs/FlySpell][Diogo Ramos]] on
+EmacsWiki). For other dictionaries, use =M-x ispell-change-dictionary=.
+
+#+begin_src emacs-lisp
+  (let ((langs '("hu_HU" "en_GB")))
+    (setq lang-ring (make-ring (length langs)))
+    (dolist (elem langs) (ring-insert lang-ring elem)))
+  (defun cycle-ispell-languages ()
+    (interactive)
+    (let ((lang (ring-ref lang-ring -1)))
+      (ring-insert lang-ring lang)
+      (ispell-change-dictionary lang)))
+  (global-set-key (kbd "C-c d") 'cycle-ispell-languages)
+#+end_src
+
+
 #+source: message-line
 #+begin_src emacs-lisp
   (message "Starter Kit Spelling loaded.")
