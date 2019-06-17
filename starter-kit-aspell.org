@@ -45,6 +45,14 @@ You'll need to have Hunspell dictionaries on your system. MacOS comes with these
   ;; (setq ispell-personal-dictionary "~/.aspell.en.pws")
   (setq flyspell-issue-message-flag nil)
 
+  ;; Select suggestions using right-clicks
+
+  (eval-after-load "flyspell"
+  '(progn
+     (define-key flyspell-mouse-map [down-mouse-3] #'flyspell-correct-word)
+     (define-key flyspell-mouse-map [mouse-3] #'undefined)))
+
+
   ;; More efforts to speed up flyspell
   ;; See http://www.brool.com/index.php/speeding-up-flyspell-region 
     (defadvice flyspell-region (around fast-flyspell-region)
