@@ -15,47 +15,43 @@ flyspell doesn't start properly. Putting this customization in
 You'll need to have Hunspell dictionaries on your system. MacOS comes with these but they are quite outdated. Get the recent versions LibreOffice's [[https://github.com/LibreOffice/dictionaries][dictionaries repo]] and save them under a folder which Hunspell recognizes (on MacOS =~/Library/Spelling=, otherwise see =hunspell -D=), or set the =DICPATH= environmental variable to find dictionaries.
 
 #+begin_src emacs-lisp
-  (require 'flyspell)
-  (add-to-list 'ispell-dictionary-alist '("hu_HU"
-                                                "[[:alpha:]]"
-                                                "[^[:alpha:]]"
-                                                "[']"
-                                                t
-                                                ("-d" "hu_HU")
-                                                nil
-                                                utf-8))
-
+   (require 'flyspell)
+   (add-to-list 'ispell-dictionary-alist '("hu_HU"
+                                           "[[:alpha:]]"
+                                           "[^[:alpha:]]"
+                                           "[']"
+                                           t
+                                           ("-d" "hu_HU")
+                                           nil
+                                           utf-8))
   (add-to-list 'ispell-dictionary-alist '("en_GB"
-                                                "[[:alpha:]]"
-                                                "[^[:alpha:]]"
-                                                "[']"
-                                                t
-                                                ("-d" "en_GB")
-                                                nil
-                                                utf-8))
-
+                                          "[[:alpha:]]"
+                                          "[^[:alpha:]]"
+                                          "[']"
+                                          t
+                                          ("-d" "en_GB")
+                                          nil
+                                          utf-8))
   (add-to-list 'ispell-dictionary-alist '("en_US"
-                                                "[[:alpha:]]"
-                                                "[^[:alpha:]]"
-                                                "[']"
-                                                t
-                                                ("-d" "en_US")
-                                                nil
-                                                utf-8))
-
+                                          "[[:alpha:]]"
+                                          "[^[:alpha:]]"
+                                          "[']"
+                                          t
+                                          ("-d" "en_US")
+                                          nil
+                                          utf-8))
   (setq ispell-program-name "hunspell")
   (setq ispell-dictionary "hu_HU") 
   ;; (setq ispell-personal-dictionary "~/.aspell.en.pws")
   (setq flyspell-issue-message-flag nil)
-  
- 
-;; More efforts to speed up flyspell
-;; See http://www.brool.com/index.php/speeding-up-flyspell-region 
-  (defadvice flyspell-region (around fast-flyspell-region)
-    (cl-flet ( (sit-for (x) t) ) 
-      ad-do-it))
-  (ad-activate 'flyspell-region)
-  
+
+  ;; More efforts to speed up flyspell
+  ;; See http://www.brool.com/index.php/speeding-up-flyspell-region 
+    (defadvice flyspell-region (around fast-flyspell-region)
+      (cl-flet ( (sit-for (x) t) ) 
+        ad-do-it))
+    (ad-activate 'flyspell-region)
+
 #+end_src
 
 
