@@ -6,7 +6,7 @@ auto-save-files
 custom.el
 *elc
 places
-url/cookies
+url/
 elpa-to-submit/jabber/jabber.info
 elpa-to-submit/nxhtml/etc/schema/xhtml-loader.rnc
 thumbs/*
