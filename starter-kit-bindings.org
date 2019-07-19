@@ -299,13 +299,16 @@ ack. Install it via homebrew. The emacs interface, `ag-mode`, is [[https://githu
     Remember the previous window configurations and jump back to them
     as needed (as when, e.g., some other mode messes with your working
     layout.) Rebind the default keys to C-c-up and C-c-down as in a moment 
-    we'll assign C-c-right for rotating windows.
+    we'll assign C-c-right for rotating windows. Ediff always messes
+    up windows, so we add a hook to automatically undo window changes.
 
 #+source: local-winner-mode
 #+begin_src emacs-lisp
   (winner-mode 1)
   (global-set-key (kbd "C-c <up>") 'winner-undo)
   (global-set-key (kbd "C-c <down>") 'winner-redo)
+
+  (add-hook 'ediff-after-quit-hook-internal 'winner-undo)
 #+end_src
 
 ** Don't Use Suspend Frame
